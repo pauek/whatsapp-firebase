@@ -48,7 +48,8 @@ class ChatListPage extends StatelessWidget {
         child: Icon(Icons.add),
         onPressed: () {
           Navigator.of(context).pushNamed('/new').then((groupName) {
-            if (groupName != null) {
+            String name = groupName;
+            if (name != null && name.isNotEmpty) {
               db.collection('groups').document().setData({
                 'name': groupName,
               });
