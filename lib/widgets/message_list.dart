@@ -31,7 +31,7 @@ class MessageList extends StatelessWidget {
           padding: EdgeInsets.only(bottom: 4),
           reverse: true,
           itemCount: docs.length,
-          itemBuilder: (context, index) => MessageWidget(docs[index]),
+          itemBuilder: (context, index) => ChatMessage(docs[index]),
         );
       },
     );
