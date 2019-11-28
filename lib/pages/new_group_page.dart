@@ -17,20 +17,36 @@ class _NewGroupPageState extends State<NewGroupPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('New Group...')),
-      body: Column(
-        children: <Widget>[
-          Text('Type the name of the new group:'),
-          TextField(
-            controller: _controller,
-          ),
-          RaisedButton(
-            child: Text('Create Group'),
-            onPressed: () {
-              Navigator.of(context).pop(_controller.text);
-            },
-          )
-        ],
+      appBar: AppBar(title: Text('New Group')),
+      body: Padding(
+        padding: const EdgeInsets.all(24.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            Spacer(flex: 2),
+            Text('Type the name of the new group:'),
+            TextField(
+              controller: _controller,
+            ),
+            Row(
+              children: <Widget>[
+                SizedBox(width: 80),
+                Expanded(
+                  child: FlatButton(
+                    shape: StadiumBorder(),
+                    color: Theme.of(context).primaryColorLight,
+                    child: Text('Create Group'),
+                    onPressed: () {
+                      Navigator.of(context).pop(_controller.text);
+                    },
+                  ),
+                ),
+                SizedBox(width: 80),
+              ],
+            ),
+            Spacer(flex: 3),
+          ],
+        ),
       ),
     );
   }
